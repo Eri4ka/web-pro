@@ -25,7 +25,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['@typescript-eslint', 'react'],
+  plugins: ['@typescript-eslint', 'react', 'i18next'],
   rules: {
     // Проверка длигы отступов. По дефолту - 4
     'react/jsx-indent': [2, 2],
@@ -33,5 +33,7 @@ module.exports = {
     'react/no-deprecated': 0,
     // Показывать ли неиспользуемые переменные
     '@typescript-eslint/no-unused-vars': 1,
+    // Подсвечивает, если имеется текст без переводов
+    'i18next/no-literal-string': 1,
   },
 };
