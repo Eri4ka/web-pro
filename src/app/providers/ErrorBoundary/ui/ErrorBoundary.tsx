@@ -20,13 +20,13 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
     return { hasError: true };
   }
 
-  componentDidCatch(error: Error, info: ErrorInfo) {
+  componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     // Example "componentStack":
     //   in ComponentThatThrows (created by App)
     //   in ErrorBoundary (created by App)
     //   in div (created by App)
     //   in App
-    console.log(error, info.componentStack);
+    console.log(error, errorInfo);
   }
 
   render() {
