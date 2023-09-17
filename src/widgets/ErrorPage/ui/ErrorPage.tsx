@@ -1,25 +1,26 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import cls from './ErrorPage.module.scss';
 import { useTranslation } from 'react-i18next';
-import { Button } from 'shared/ui/Button';
+import { Button } from 'shared/ui/Button/Button';
+import cls from './ErrorPage.module.scss';
 
-interface ErrorPage {
-  className?: string;
+interface ErrorPageProps {
+    className?: string;
 }
 
-const ErrorPage = ({ className }: ErrorPage) => {
-  const { t } = useTranslation();
+export const ErrorPage = ({ className }: ErrorPageProps) => {
+    const { t } = useTranslation();
 
-  const reloadPage = () => {
-    location.reload();
-  };
+    const reloadPage = () => {
+        // eslint-disable-next-line no-restricted-globals
+        location.reload();
+    };
 
-  return (
-    <div className={classNames(cls.ErrorPage, {}, [className])}>
-      <p>{t('Произошла непредвиденная ошибка')}</p>
-      <Button onClick={reloadPage}>{t('Обновить страницу')}</Button>
-    </div>
-  );
+    return (
+        <div className={classNames(cls.ErrorPage, {}, [className])}>
+            <p>{t('Произошла непредвиденная ошибка')}</p>
+            <Button onClick={reloadPage}>
+                {t('Обновить страницу')}
+            </Button>
+        </div>
+    );
 };
-
-export default ErrorPage;
